@@ -3,87 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Card</title>
+    <title>BINI Profile Card</title>
     <style>
+        /* Body styles */
         body {
-            background-color: #0d0d0d;
-            font-family: "Roboto", sans-serif;
-            font-weight: 500;
-             font-style: normal;
-            display: flex;
-            margin-left: 40%;
-            margin-top: 200px;
-            text-align: center;
-        }
-
-        .profile {
-            background-color: #222;
-            color: white;
-            border-radius: 15px;
-            padding: 30px;
-
-            width: 320px;
-        }
-
-        .profile img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-
-        }
-
-        .profile h2 {
-            margin-bottom: 5px;
-
-        }
-
-        .profile p.location {
-            color: #a5ff3d;
-            font-size: 0.9em;
+            background: linear-gradient(135deg, #ff4081, #ff6e40, #f9a825); /* Bold gradient background */
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            overflow: hidden;
         }
 
-        .profile p.bio {
+        /* Profile Card Style */
+        .profile {
+            background: #222222; /* Dark background with slight transparency */
+            color: white;
+            border-radius: 25px;
+            padding: 40px;
+            width: 350px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px); /* Makes background blur behind the card */
+            transition: transform 0.3s ease-in-out;
+            animation: cardBounce 1.5s ease-out; /* Card bounce animation */
+        }
+
+        /* Hover effect on profile card */
+        .profile:hover {
+            transform: scale(1.1);
+        }
+
+        /* Card Bounce animation */
+        @keyframes cardBounce {
+            0% { transform: scale(0.9); opacity: 0; }
+            60% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        /* Profile Image */
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect for the profile image */
+        .profile img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Member Name */
+        .profile h2 {
+            font-size: 2em;
+            font-weight: 700;
             margin: 10px 0;
-
+            color: #fff;
+            letter-spacing: 1px;
         }
 
+        /* Location (City) */
+        .profile p.location {
+            font-size: 1.1em;
+            color: #a5ff3d;
+            margin: 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Bio Text */
+        .profile p.bio {
+            font-size: 1.2em;
+            color: #f1f1f1;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        /* Social Media Buttons */
         .profile button {
-            background-color: #3a3a3a;
+            background-color: #ff4081;
             color: white;
             border: none;
-            padding: 10px 20px;
-            margin: 5px 0;
-            border-radius: 5px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border-radius: 25px;
             width: 100%;
-            font-size: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
+        /* Hover and active states for buttons */
         .profile button:hover {
-            background-color: #555;
+            background-color: #ff6e40;
+            transform: translateY(-3px);
         }
 
         .profile button:active {
-            background-color: #777;
+            background-color: #e63625;
+            transform: translateY(2px);
         }
+
+        /* Animation for background moving */
+        @keyframes gradientShift {
+            0% { background-position: 0 0; }
+            100% { background-position: 400% 0; }
+        }
+
+        /* Background animation */
+        body {
+            animation: gradientShift 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
     </style>
 </head>
 <body>
 
+    <!-- Profile Card Structure -->
     <div class="profile">
-        <img src="Earl.jpg" alt="Profile Picture">
+        <!-- Profile Image -->
+        <img src="Earl.jpg" alt="BINI Member Profile Picture">
+        
+        <!-- Profile Information -->
         <h2>Earl Rotsen C. Tejada</h2>
         <p class="location">Cebu City, Philippines</p>
         <p class="bio">"DJ/Spinner"</p>
+
+        <!-- Social Media Buttons -->
         <button onclick="document.location='https://github.com/Rhanzelle35'">GitHub</button>
-        <button onclick="document.location='https://www.tiktok.com/@dj_rotsen'">Tiktok</button>
-        <button onclick="document.location='https://www.youtube.com/@DJROTSEN35'">Youtube</button>
+        <button onclick="document.location='https://www.tiktok.com/@dj_rotsen'">TikTok</button>
+        <button onclick="document.location='https://www.youtube.com/@DJROTSEN35'">YouTube</button>
         <button onclick="document.location='https://www.facebook.com/Tsen2x'">Facebook</button>
         <button onclick="document.location='https://www.instagram.com/djrotsen35/?next=%2F'">Instagram</button>
     </div>
 
 </body>
 </html>
-
